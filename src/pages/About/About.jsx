@@ -1,170 +1,41 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Link } from 'react-router-dom';
+import { FiArrowUpRight, FiCompass, FiHeart, FiShield, FiTarget, FiZap } from 'react-icons/fi';
+import { ContactCta, PageIntro } from '../../components/SiteUI';
+import { testimonials } from '../../data/siteContent';
+import collaboration from '../../assets/about_us_banner_image.jpg';
 import './About.css';
-import bannerImage from "../../assets/about_us_banner_image.jpg";
-import profilePlaceholder from "../../assets/Blank-profile-image.jpg"; 
 
+const values = [
+  { icon: FiZap, title: 'Innovation, with purpose.', description: 'We embrace technology to solve real problems, create useful possibilities, and help your business grow.' },
+  { icon: FiShield, title: 'Integrity, always.', description: 'Trust is built in the everyday. We work with honesty, transparency, and respect for the people we partner with.' },
+  { icon: FiHeart, title: 'Your success, shared.', description: 'Your goals guide our decisions. We care about the result, the experience, and the relationship that comes with it.' },
+];
+const differences = [
+  ['Expertise & innovation', 'Fresh thinking, backed by the technical knowledge to make it work.'],
+  ['Tailored to you', 'Solutions shaped around your needs, your industry, and your ambitions.'],
+  ['People at the center', 'Your success is our priority, at every step of the partnership.'],
+  ['Support from start to finish', 'A team that stays close, from the first conversation to life after launch.'],
+  ['Security & reliability', 'Dependable, scalable solutions designed with care for what matters.'],
+];
 
 function About() {
-
-  const navigate = useNavigate();
-
-  
-  const slides = [
-    { title: "Expertise & Innovation", description: "Cutting-edge tech solutions tailored to your needs." },
-    { title: "Tailored Solutions", description: "Custom-fit services to align with your business goals." },
-    { title: "Client-Centric Approach", description: "Your success is our priority at every step." },
-    { title: "End-to-End Support", description: "Seamless support from start to finish and beyond." },
-    { title: "Security & Reliability", description: "Secure, scalable solutions you can trust." }
-  ];
-
-  const testimonials = [
-    {
-      quote: "Our experience with TekzAI’s AI and machine learning services was outstanding. They developed predictive models that have streamlined our inventory management and improved patient care. Their expertise in data science was evident at every stage, and we saw a direct impact on efficiency. They’re a reliable partner we trust.",
-      name: ". Abdullah Al Marri",
-    },
-    {
-      quote: "With the TKZ-AMT asset management tool, TekzAI Solutions has taken our asset tracking capabilities to a whole new level. The real-time alerts and lifecycle management features have streamlined our operations and reduced maintenance costs. The ease of integration and user-friendly interface make it a highly effective tool. I am extremely pleased with the results!",
-      name: "Shinto Mathew",
-    },
-    {
-      quote: "I had a great experience with TekzAI! They have a highly competent and skilled team in place. A very professional organization where the customer is the top priority.",
-      name: "Fatima Al Hashimi",
-    },
-    {
-      quote: "TekzAI Solutions provided exceptional custom software development services for our business. From the initial consultation to deployment, their team showed deep technical knowledge and a commitment to meeting our unique requirements. The solution they delivered has been a vital part of our growth strategy, and we couldn’t be happier with the partnership.",
-      name : "Sameer Kaur"
-    },
-  ];
-
-  const carouselSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    autoplay: true,
-    centerMode: false, // Disable center mode for responsive view
-    nextArrow: <div className="custom-slick-next"><span>›</span></div>,
-    prevArrow: <div className="custom-slick-prev"><span>‹</span></div>,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false, // Disable arrows on mobile for a cleaner look
-          centerMode: false,
-          dots: true,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
   return (
-    <div className="about-page">
-      {/* Banner Section */}
-      <section className="banner-section" style={{ backgroundImage: `url(${bannerImage})` }}>
-        <div className="banner-overlay">
-          <h1>About Us</h1>
-        </div>
-      </section>
-   
-
-      {/* "Who We Are" Section */}
-      <section className="who-we-are">
-        <h2>Who We Are</h2>
-        <p>Welcome to TekzAI Solutions, a pioneering cloud application development company dedicated to transforming businesses through innovative digital solutions.</p>
-        <p> Founded with a mission to empower organizations of all sizes, we specialize in custom software development, AI and machine learning, cloud solutions, ERP and CRM systems, and data analytics. </p>
-        <p>Our expert team is committed to understanding each client’s unique challenges, providing personalized services that drive growth, efficiency, and competitive advantage. At TekzAI, we pride ourselves on delivering reliable, secure, and scalable solutions that allow businesses to thrive in an increasingly digital world. </p>
-        <p>Partner with us to experience technology-driven excellence and a seamless journey toward your business goals.</p>
-        <div className="who-we-are-buttons">
-          <button className="primary-button" onClick={() => window.location.href = '/products'}>Our Products</button>
-          <button className="secondary-button" onClick={() => window.location.href = '/services'}>Our Services</button>
-        </div>
+    <>
+      <PageIntro />
+      <section className="site-section about-story" aria-labelledby="about-story-heading">
+        <div className="reveal"><p className="eyebrow">A LITTLE MORE HUMAN</p><h2 id="about-story-heading">Thoughtful by design.<br />People at heart.</h2><p>Technology can do remarkable things. We believe its real value is in what it helps people achieve.</p><p>TekzAi is a cloud application development and technology solutions company. We bring together custom software, AI, cloud expertise, enterprise systems, and data analytics to help businesses work better and move forward.</p><p>Every business has a different story. We take time to understand yours, then build reliable, secure solutions that fit your goals and grow alongside you.</p><Link className="text-link" to="/services">See what we can build together <FiArrowUpRight aria-hidden="true" /></Link></div>
+        <figure className="about-story__image reveal"><img src={collaboration} alt="People collaborating around a table with notes and business plans" width="6000" height="4000" loading="lazy" /><figcaption><span>BETTER, TOGETHER.</span><span>Ideas become possibilities when people connect.</span></figcaption></figure>
       </section>
 
-      
-      {/* Why TekzAi Section */}
-      <section className="why-tekzai-section">
-        <h2>Why TekzAi?</h2>
-        <Slider {...carouselSettings} className="carousel">
-          {slides.map((slide, index) => (
-            <div key={index} className="slide">
-              <h3>{slide.title}</h3>
-              <p>{slide.description}</p>
-            </div>
-          ))}
-        </Slider>
-      </section>
+      <section className="mission-panel reveal" aria-labelledby="mission-heading"><div className="mission-panel__symbol" aria-hidden="true"><FiCompass /></div><div><p className="eyebrow">OUR REASON FOR BEING</p><h2 id="mission-heading">Help good businesses<br />do great things.</h2><p>Our mission is to empower businesses with innovative digital solutions that improve productivity, support sustainable growth, and open the door to what comes next. Reliable, secure, and tailored to the people who use them.</p></div><FiTarget className="mission-panel__target" aria-hidden="true" /></section>
 
-      {/* Mission Section */}
-      <section className="mission-vision">
-        <h2>Mission</h2>
-        <p>
-          Our mission is to empower businesses with innovative digital solutions that enhance productivity, drive sustainable growth, 
-          and foster technological advancement. We strive to deliver reliable, secure, and tailored services that align with each 
-          client's unique needs, helping them achieve operational excellence and a competitive edge in their industry.
-        </p>
-      </section>
+      <section className="site-section" aria-labelledby="values-heading"><div className="section-heading reveal"><div><p className="eyebrow">WHAT WE STAND FOR</p><h2 id="values-heading">Good work starts<br />with good values.</h2></div><p>The principles behind our decisions,<br />our work, and every partnership.</p></div><div className="values-grid">{values.map(({ icon: Icon, title, description }) => <article className="value-card reveal" key={title}><span className="icon-tile"><Icon aria-hidden="true" /></span><h3>{title}</h3><p>{description}</p></article>)}</div></section>
 
+      <section className="section-surface section-surface--lavender" aria-labelledby="difference-heading"><div className="site-section difference-layout"><div className="difference-layout__heading reveal"><p className="eyebrow">THE TEKZAI WAY</p><h2 id="difference-heading">More than a provider.<br />A partner in<br />your progress.</h2><p>We bring curiosity to every challenge and commitment to every relationship.</p></div><ol className="difference-list">{differences.map(([title, description], index) => <li className="reveal" key={title}><span className="small-number">0{index + 1}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}</ol></div></section>
 
-      {/* Core Values Section */}
-      <section className="team-section">
-        <h2>Our Core Values</h2>
-        <div className="card-container">
-          <div className="about-card">
-            <h3>Innovation</h3>
-            <p>We embrace technology to drive growth and create impactful solutions.</p>
-          </div>
-          <div className="about-card">
-            <h3>Integrity</h3>
-            <p>Trust and transparency are at the heart of our relationships.</p>
-          </div>
-          <div className="about-card">
-            <h3>Customer Success</h3>
-            <p>We focus on our clients’ goals and strive to exceed their expectations.</p>
-          </div>
-        </div>
-      </section>
-
-          {/* Customer Testimonials Section */}
-          <section className="testimonials-section">
-        <h2>Customer Testimonials</h2>
-        <h3>Read why we do what we do.</h3>
-        <div className="testimonials-grid">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="testimonial-card">
-              <p className="testimonial-quote">"{testimonial.quote}"</p>
-              <div className="testimonial-author">
-                <img
-                  src={profilePlaceholder}
-                  alt="Profile"
-                  className="testimonial-profile-pic"
-                />
-                <div className="author-info">
-                  <p className="testimonial-name">{testimonial.name}</p>
-                  <p className="testimonial-location">{testimonial.location}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-       {/* CTA Section */}
-       <section className="cta-section">
-        <div className="cta-content">
-          <h2>Simplify your IT environment!</h2>
-          <p>Schedule a free consultation to learn more about how we can ease your tasks.</p>
-          <button className="cta-button" onClick={() => navigate('/contact')}>Contact us</button>
-        </div>
-      </section>
-    </div>
+      <section className="site-section anchor-section" id="testimonials" aria-labelledby="testimonials-heading"><div className="section-heading reveal"><div><p className="eyebrow">IN OUR CLIENTS’ WORDS</p><h2 id="testimonials-heading">The best part?<br />Who we build it with.</h2></div><p>Real experiences from the people<br />and businesses we work alongside.</p></div><div className="quote-grid">{testimonials.map(({ name, initials, quote }) => <figure className="quote-card reveal" key={name}><span className="quote-mark" aria-hidden="true">“</span><blockquote>{quote}</blockquote><figcaption><span className="avatar-initials">{initials}</span><span>{name}<small>A TekzAi client</small></span></figcaption></figure>)}</div></section>
+      <ContactCta />
+    </>
   );
 }
 

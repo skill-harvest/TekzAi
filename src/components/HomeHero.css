@@ -1,0 +1,221 @@
+.tek-hero {
+  --hero-ink: #17191f;
+  --hero-muted: #65677f;
+  --hero-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  max-width: 1280px;
+  margin: 0 auto 16px;
+  padding: 142px 0 30px;
+  overflow: hidden;
+  border-inline: 1px solid #eeeef4;
+  border-radius: 0 0 28px 28px;
+  background: #eeeef6;
+  color: var(--hero-ink);
+  font-family: 'Inter', Arial, sans-serif;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tek-hero *, .tek-hero *::before, .tek-hero *::after { box-sizing: border-box; }
+.tek-hero a { text-decoration: none; }
+.tek-hero a:focus-visible { outline: 2px solid #5054a6; outline-offset: 6px; }
+
+.tek-hero__aurora {
+  position: absolute;
+  z-index: -1;
+  top: 135px;
+  left: -10%;
+  width: 120%;
+  height: 540px;
+  background:
+    radial-gradient(ellipse at 49% 37%, rgb(221 251 238 / 85%), transparent 37%),
+    radial-gradient(ellipse at 28% 43%, rgb(214 211 255 / 68%), transparent 32%),
+    radial-gradient(ellipse at 73% 34%, rgb(213 229 255 / 78%), transparent 35%);
+  filter: blur(22px);
+  animation: tek-hero-drift 14s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.tek-hero__intro { position: relative; padding: 0 24px; }
+.tek-hero__mark { display: inline-flex; color: #202129; animation: tek-hero-rise 900ms var(--hero-ease) both; }
+.tek-hero__mark svg { display: block; width: 29px; height: 29px; stroke-width: 2; }
+.tek-hero__eyebrow, .tek-hero__specialty {
+  color: #65657c;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+}
+.tek-hero__eyebrow { display: flex; align-items: center; justify-content: center; gap: 9px; margin: 48px 0 0; }
+.tek-hero__eyebrow svg { width: 13px; height: 13px; flex-shrink: 0; color: #8a879e; }
+.tek-hero__eyebrow svg:last-child { transform: rotate(180deg); }
+.tek-hero__title {
+  margin: 24px 0 0;
+  color: var(--hero-ink);
+  font-size: clamp(44px, 4.8vw, 68px);
+  font-weight: 400;
+  letter-spacing: -3.8px;
+  line-height: 1.055;
+}
+.tek-hero__title > span { display: block; }
+.tek-hero__description { max-width: 580px; margin: 24px auto 0; color: var(--hero-muted); font-size: 17px; font-weight: 400; letter-spacing: -0.4px; line-height: 1.65; text-wrap: pretty; }
+.tek-hero__specialty { margin: 28px 0 0; font-size: 9px; letter-spacing: 1.2px; }
+.tek-hero__actions { display: flex; align-items: center; justify-content: center; gap: 30px; margin-top: 30px; }
+.tek-hero__consultation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px 8px 8px;
+  border: 1px solid #38383f;
+  border-radius: 13px;
+  background: #15151a;
+  box-shadow: 0 0 0 4px rgb(34 34 49 / 6%), 0 3px 5px rgb(34 34 49 / 7%);
+  color: #fff;
+  text-align: left;
+  transition: background 200ms ease, box-shadow 250ms ease, transform 300ms var(--hero-ease);
+}
+.tek-hero__consultation:hover { background: #282830; box-shadow: 0 0 0 5px rgb(34 34 49 / 9%), 0 6px 14px rgb(34 34 49 / 12%); transform: translateY(-2px); }
+.tek-hero__consultation:active { transform: translateY(0); }
+.tek-hero__chat-icon { position: relative; display: grid; width: 34px; height: 34px; flex-shrink: 0; place-items: center; border: 1px solid #57575e; border-radius: 8px; background: linear-gradient(135deg, #444b48, #292a33); }
+.tek-hero__chat-icon > svg { width: 18px; height: 18px; color: #d9e4df; }
+.tek-hero__chat-icon::after { position: absolute; right: -3px; bottom: -2px; width: 8px; height: 8px; border: 2px solid #15151a; border-radius: 50%; background: #77cf92; content: ''; }
+.tek-hero__consultation-copy { display: flex; flex-direction: column; gap: 2px; }
+.tek-hero__consultation-copy > span:first-child { font-size: 12px; font-weight: 500; letter-spacing: -0.2px; line-height: 1.3; }
+.tek-hero__consultation-copy > span:last-child { color: #b8b8c1; font-size: 9px; line-height: 1.3; }
+.tek-hero__consultation-arrow { width: 15px; height: 15px; margin-left: 7px; color: #a5a5b0; transition: color 200ms ease, transform 300ms var(--hero-ease); }
+.tek-hero__consultation:hover .tek-hero__consultation-arrow { color: #fff; transform: translate(2px, -2px); }
+.tek-hero__explore { display: inline-flex; min-height: 44px; align-items: center; gap: 7px; color: #24242c; font-size: 12px; letter-spacing: -0.2px; }
+.tek-hero__explore svg { width: 14px; height: 14px; transition: transform 300ms var(--hero-ease); }
+.tek-hero__explore:hover { color: #51518a; }
+.tek-hero__explore:hover svg { transform: translate(2px, -2px); }
+.tek-hero__note { margin: 17px 0 0; color: #707086; font-size: 10px; letter-spacing: -0.1px; line-height: 1.5; }
+
+.tek-hero__suite { display: flex; align-items: center; justify-content: center; width: min(920px, calc(100% - 64px)); margin: 62px auto 0; padding: 0; list-style: none; }
+.tek-hero__suite li { flex: 1; }
+.tek-hero__suite li + li { border-left: 1px solid #dcdce7; }
+.tek-hero__suite a { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: 8px; padding: 4px 10px; color: #82809e; transition: color 200ms ease, transform 250ms var(--hero-ease); }
+.tek-hero__suite a > svg { width: 22px; height: 22px; stroke-width: 2; }
+.tek-hero__suite a > span { font-size: 22px; font-weight: 600; letter-spacing: -1.2px; line-height: 1.2; }
+.tek-hero__suite a > span > span:last-child { font-weight: 400; }
+.tek-hero__suite-dot { color: #9b98b3; }
+.tek-hero__suite a:hover { color: #45465f; transform: translateY(-2px); }
+
+.tek-hero__showcase { position: relative; display: grid; grid-template-columns: minmax(230px, 1fr) minmax(0, 760px) minmax(230px, 1fr); align-items: start; gap: 30px; width: calc(100% + 280px); margin: 66px -140px 0; padding: 0 0 12px; }
+.tek-hero__frame { display: block; min-width: 0; padding: 10px; border: 1px solid #d5d5e1; border-radius: 26px; background: #e1e1eb; box-shadow: 0 8px 20px rgb(49 47 83 / 4%); text-align: left; transition: transform 450ms var(--hero-ease), box-shadow 300ms ease; }
+.tek-hero__frame > div { position: relative; min-height: 330px; overflow: hidden; border: 9px solid #fff; border-radius: 19px; }
+.tek-hero__frame:hover { transform: translateY(-6px); box-shadow: 0 14px 30px rgb(49 47 83 / 10%); }
+.tek-hero__frame--left, .tek-hero__frame--right { margin-top: 34px; }
+.tek-hero__frame--left { transform: rotate(-3deg); }
+.tek-hero__frame--right { transform: rotate(3deg); }
+.tek-hero__frame--left:hover { transform: translateY(-6px) rotate(-3deg); }
+.tek-hero__frame--right:hover { transform: translateY(-6px) rotate(3deg); }
+
+.tek-hero__technology-preview { position: relative; padding: 24px 28px; background: #101414; color: #fff; }
+.tek-hero__technology-preview::before { position: absolute; inset: 0; background: radial-gradient(ellipse at 85% 70%, rgb(110 158 129 / 17%), transparent 60%), linear-gradient(125deg, transparent 55%, rgb(255 255 255 / 2%) 55%, transparent 56%); content: ''; pointer-events: none; }
+.tek-hero__preview-brand { position: relative; z-index: 1; display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 600; letter-spacing: 3px; }
+.tek-hero__preview-brand > svg { width: 20px; height: 20px; }
+.tek-hero__preview-brand > span { margin-left: auto; color: #929c96; font: 8px / 1.5 Consolas, monospace; letter-spacing: 1.4px; }
+.tek-hero__preview-copy { position: relative; z-index: 1; margin-top: 58px; }
+.tek-hero__preview-copy > span { color: #9daaa1; font: 8px / 1.5 Consolas, monospace; letter-spacing: 2px; }
+.tek-hero__preview-copy p { margin: 14px 0 0; color: #f2f4f1; font-size: clamp(26px, 3vw, 40px); font-weight: 400; letter-spacing: -1.7px; line-height: 1.15; }
+.tek-hero__preview-copy p > span { color: #a8c6b4; }
+.tek-hero__preview-footer { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; margin-top: 48px; color: #a0aba4; font: 8px / 1.4 Consolas, monospace; letter-spacing: 1.5px; }
+.tek-hero__preview-footer > svg { width: 24px; height: 24px; padding: 4px; border: 1px solid #4b5650; border-radius: 50%; color: #d5e5d9; }
+.tek-hero__sculpture { position: absolute; top: 48px; right: -4px; display: grid; width: 300px; height: 260px; place-items: center; transform: rotate(-20deg); }
+.tek-hero__orbit { position: absolute; width: 240px; height: 140px; border: 1px solid #4d6858; border-radius: 50%; transform: rotate(35deg); }
+.tek-hero__orbit--two { width: 180px; height: 230px; border-color: #39473f; transform: rotate(15deg); }
+.tek-hero__core { position: relative; display: grid; width: 112px; height: 112px; place-items: center; border: 1px solid #c6e5ce; border-radius: 27px; background: linear-gradient(135deg, #d1e8d9, #6a957d 52%, #254c37); box-shadow: 8px 10px 0 #304e3c, 12px 14px 0 #617865, 18px 22px 30px rgb(0 0 0 / 45%), inset 1px 2px 1px #f0fff4; transform: rotate(9deg); }
+.tek-hero__core svg { width: 52px; height: 52px; color: #213d2c; stroke-width: 1; }
+.tek-hero__satellite { position: absolute; display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid #6a8072; border-radius: 12px; background: #243a2e; box-shadow: 3px 4px 0 #16231b; color: #b3cbbd; }
+.tek-hero__satellite--one { top: 23px; right: 70px; }
+.tek-hero__satellite--two { right: 12px; bottom: 46px; }
+.tek-hero__satellite--three { bottom: 7px; left: 44px; }
+
+.tek-hero__asset-preview { padding: 16px; background: #f5f3ed; color: #464b40; }
+.tek-hero__preview-bar { display: flex; align-items: center; gap: 4px; color: #7f807d; }
+.tek-hero__preview-bar > span:not(:last-child) { width: 4px; height: 4px; border-radius: 50%; background: #c6c8c0; }
+.tek-hero__preview-bar > span:last-child { margin-left: auto; font-size: 12px; font-weight: 600; letter-spacing: -0.6px; }
+.tek-hero__asset-heading { display: flex; align-items: center; gap: 10px; margin: 30px 0 22px; font-size: 24px; font-weight: 500; letter-spacing: -1px; line-height: 1.2; }
+.tek-hero__asset-heading > svg { width: 30px; height: 30px; flex-shrink: 0; color: #849074; }
+.tek-hero__asset-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.tek-hero__asset-grid > span { display: flex; min-height: 57px; align-items: center; gap: 10px; padding: 12px; border: 1px solid #e0e0d3; border-radius: 9px; background: #fffefa; color: #909879; }
+.tek-hero__asset-grid i { width: 28px; height: 4px; border-radius: 3px; background: #e1e3d5; }
+.tek-hero__preview-label { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 27px; font: 7px / 1.5 Consolas, monospace; letter-spacing: 1px; }
+.tek-hero__preview-label > svg { width: 14px; height: 14px; }
+.tek-hero__learning-preview { padding: 16px; background: #eeedf6; color: #605778; }
+.tek-hero__learning-icon { display: grid; width: 42px; height: 42px; place-items: center; margin-top: 25px; border: 1px solid #d0c9e2; border-radius: 12px; background: #e0d9ed; }
+.tek-hero__learning-icon svg { width: 23px; height: 23px; }
+.tek-hero__learning-preview > p { margin: 16px 0 20px; font-size: 22px; letter-spacing: -0.8px; line-height: 1.2; }
+.tek-hero__lesson { display: flex; align-items: center; gap: 10px; margin-top: 7px; padding: 9px; border: 1px solid #dfdbe9; border-radius: 7px; background: #faf9fd; }
+.tek-hero__lesson > span { display: grid; width: 20px; height: 20px; place-items: center; border-radius: 5px; background: #e7e2ef; }
+.tek-hero__lesson i { width: 65%; height: 4px; border-radius: 2px; background: #ddd7e7; }
+.tek-hero__lesson > svg { width: 12px; height: 12px; margin-left: auto; }
+.tek-hero__learning-preview .tek-hero__preview-label { margin-top: 22px; }
+.tek-hero__showcase-note { margin: 15px 20px 0; color: #7c7b90; font-size: 10px; line-height: 1.5; }
+
+.tek-hero__reveal { animation: tek-hero-rise 900ms var(--hero-ease) both; }
+.tek-hero__eyebrow { animation-delay: 60ms; }
+.tek-hero__title { animation-delay: 120ms; }
+.tek-hero__description { animation-delay: 200ms; }
+.tek-hero__specialty { animation-delay: 260ms; }
+.tek-hero__actions { animation-delay: 320ms; }
+.tek-hero__note { animation-delay: 380ms; }
+.tek-hero__suite { animation-delay: 440ms; }
+.tek-hero__showcase { animation-delay: 520ms; }
+
+@keyframes tek-hero-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes tek-hero-drift {
+  from { transform: translate(-2%, -3%) scale(1); }
+  to { transform: translate(3%, 3%) scale(1.08); }
+}
+
+@media (max-width: 1050px) {
+  .tek-hero { margin-inline: 20px; }
+  .tek-hero__showcase { grid-template-columns: 230px minmax(0, 1fr) 230px; width: calc(100% + 330px); margin-inline: -165px; gap: 22px; }
+  .tek-hero__sculpture { right: -60px; }
+}
+
+@media (max-width: 650px) {
+  .tek-hero { margin: 0 10px 16px; padding-top: 124px; border-radius: 0 0 22px 22px; }
+  .tek-hero__intro { padding-inline: 18px; }
+  .tek-hero__mark svg { width: 25px; height: 25px; }
+  .tek-hero__eyebrow { gap: 6px; margin-top: 35px; font-size: 8px; letter-spacing: 0.8px; }
+  .tek-hero__eyebrow svg { width: 11px; height: 11px; }
+  .tek-hero__title { margin-top: 20px; font-size: clamp(34px, 8.8vw, 54px); letter-spacing: -2px; line-height: 1.08; }
+  .tek-hero__description { max-width: 420px; margin-top: 20px; font-size: 14px; letter-spacing: -0.2px; line-height: 1.7; }
+  .tek-hero__specialty { margin-top: 24px; font-size: 8px; letter-spacing: 0.8px; }
+  .tek-hero__actions { flex-direction: column; gap: 14px; margin-top: 25px; }
+  .tek-hero__consultation { gap: 11px; padding-right: 14px; }
+  .tek-hero__explore { min-height: 36px; font-size: 12px; }
+  .tek-hero__note { margin-top: 10px; font-size: 9px; }
+  .tek-hero__suite { flex-wrap: wrap; width: calc(100% - 32px); max-width: 450px; gap: 8px 0; margin-top: 34px; }
+  .tek-hero__suite li { flex: 0 0 33.333%; }
+  .tek-hero__suite li:nth-child(4) { border-left: 0; }
+  .tek-hero__suite a { min-height: 36px; gap: 5px; padding-inline: 5px; }
+  .tek-hero__suite a > svg { width: 17px; height: 17px; }
+  .tek-hero__suite a > span { font-size: 17px; letter-spacing: -0.9px; }
+  .tek-hero__showcase { display: block; width: auto; margin: 38px 16px 0; padding: 0; }
+  .tek-hero__frame { padding: 7px; border-radius: 20px; }
+  .tek-hero__frame > div { min-height: 305px; border-width: 6px; border-radius: 13px; }
+  .tek-hero__frame--left, .tek-hero__frame--right { display: none; }
+  .tek-hero__technology-preview { padding: 20px; }
+  .tek-hero__preview-brand { font-size: 9px; letter-spacing: 2px; }
+  .tek-hero__preview-brand > svg { width: 17px; height: 17px; }
+  .tek-hero__preview-brand > span { display: none; }
+  .tek-hero__preview-copy { margin-top: 53px; }
+  .tek-hero__preview-copy > span { font-size: 7px; letter-spacing: 1.4px; }
+  .tek-hero__preview-copy p { position: relative; z-index: 1; font-size: clamp(25px, 6vw, 35px); letter-spacing: -1px; }
+  .tek-hero__sculpture { top: 32px; right: -155px; opacity: 0.65; }
+  .tek-hero__preview-footer { margin-top: 50px; font-size: 7px; letter-spacing: 1px; }
+  .tek-hero__showcase-note { margin-top: 20px; font-size: 9px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tek-hero *, .tek-hero *::before, .tek-hero *::after { animation: none !important; transition: none !important; }
+}

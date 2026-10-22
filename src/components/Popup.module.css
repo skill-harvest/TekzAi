@@ -1,65 +1,12 @@
-/* Popup.module.css */
-.popupOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.popupContent {
-  background: white;
-  padding: 0;
-  border-radius: 12px;
-  max-width: 600px;
-  width: 90%;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  animation: fadeIn 0.5s ease-in-out;
-  box-sizing: border-box;
-}
-
-.popupImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 12px;
-}
-
-.closeBtn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #ff5b5b;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 50%;
-  transition: background 0.3s ease;
-  z-index: 10;
-}
-
-.closeBtn:hover {
-  background: #ff2929;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
+.overlay { position: fixed; z-index: 2200; inset: 0; display: grid; place-items: center; padding: 24px; overflow-y: auto; background: rgb(35 29 47 / 35%); backdrop-filter: blur(8px); }
+.dialog { width: min(500px, 100%); max-height: calc(100dvh - 48px); overflow-y: auto; border: 1px solid #e9e2f0; border-radius: 22px; background: #faf9fc; box-shadow: 0 20px 80px rgb(36 27 49 / 18%); animation: announcement-enter 350ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.header { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 15px 18px; }
+.header h2 { color: #766780; font-size: 13px; font-weight: 400; letter-spacing: -0.2px; }
+.header button { display: grid; width: 36px; height: 36px; flex-shrink: 0; place-items: center; border: 1px solid #e4ddeb; border-radius: 10px; background: #f3eff7; color: #877193; }
+.header button:hover { background: #e9e1f1; }
+.header svg { width: 17px; height: 17px; }
+.image { display: block; width: 100%; height: auto; }
+.continueButton { display: flex; min-height: 55px; width: 100%; align-items: center; justify-content: center; gap: 12px; padding: 16px; border: 0; background: #faf9fc; color: #8a7497; font-size: 11px; }
+.continueButton:hover { background: #f0eaf6; }
+.continueButton svg { width: 14px; height: 14px; }
+@keyframes announcement-enter { from { opacity: 0; transform: translateY(14px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }

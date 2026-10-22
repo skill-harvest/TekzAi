@@ -1,40 +1,35 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
+import { SiteEffects } from './components/SiteUI';
 import Footer from './components/Footer';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Services from './pages/Services/Services';
 import Products from './pages/Products/Products';
+import ProductDetail from './pages/Products/ProductDetail';
+import NotFound from './pages/NotFound';
 import Contact from './pages/Contact/Contact';
 import Popup from './components/PopUp';
-import styles from "./components/Popup.module.css";
-import popup from "./assets/popup.jpg";
 
 function App() {
-  const [isPopupOpen, setPopupOpen] = useState(false);
-
-  // Show the popup on page load
-  useEffect(() => {
-    setPopupOpen(true);
-  }, []);
-
   return (
     <div className="app-container">
       <Router>
+        <a className="skip-link" href="#main-content">Skip to content</a>
         <Navbar />
-        <div className="content">
-          <Popup isOpen={isPopupOpen} onClose={() => setPopupOpen(false)}>
-            <img src={popup} alt="Popup" className={styles.popupImage} />
-          </Popup>
+        <SiteEffects />
+        <main className="content" id="main-content" tabIndex={-1}>
+          <Popup />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/products/:productId" element={<ProductDetail />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
-        </div>
+        </main>
         <Footer />
       </Router>
     </div>

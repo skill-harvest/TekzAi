@@ -1,109 +1,37 @@
-.footer {
-  background-color: #0d253f;
-  color: #ffffff;
-  padding: 2rem 1.5rem;
-  font-family: 'YourFontFamily', sans-serif;
-}
-
-/* Desktop Footer Content */
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.footer-about, .footer-links, .footer-contact {
-  max-width: 300px;
-  text-align: center;
-}
-
-.footer-about h4, .footer-links h4, .footer-contact h4 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: #66ccff;
-}
-
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-links ul li {
-  margin-bottom: 0.5rem;
-}
-
-.footer-links ul li a {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.3s;
-}
-
-.footer-links ul li a:hover {
-  color: #66ccff;
-}
-
-.footer-contact p {
-  font-size: 0.95rem;
-  margin: 0.3rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem; /* Space between icon and text */
-}
-
-.footer-contact i {
-  color: #e9e9e9; /* Accent color for icons */
-  font-size: 1.1rem;
-}
-
-.footer-bottom {
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 1rem;
-  font-size: 0.85rem;
-  color: #cccccc;
-}
-
-/* Mobile Sticky Footer */
-.footer-mobile {
-  display: none; /* Hidden on desktop by default */
-}
-
-@media (max-width: 768px) {
-  /* Hide Desktop Footer on Mobile */
-  .footer-content, .footer-bottom {
-    display: none;
-  }
-
-  /* Show Mobile Footer */
-  .footer-mobile {
-    display: flex;
-    justify-content: space-around;
-    background-color: #0d253f;
-    padding: .5rem ;
-    position: fixed;        /* Fixes the footer to the viewport */
-    bottom: 0;              /* Positions it at the bottom */
-    left: 0;
-    right: 0;
-    z-index: 2000;          /* Ensures it stays above other content */
-  }
-
-  .footer-mobile-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #ffffff;
-    font-size: 0.7rem;
-    cursor: pointer;
-    text-align: center;
-  }
-
-  .footer-mobile-item a {
-    font-size: 1.3rem;
-    margin-bottom: 0.2rem;
-  }
+.site-footer { max-width: 1280px; margin: 0 auto 20px; padding: 56px 64px 24px; border: 1px solid #e9e6f0; border-radius: 26px; background: #f6f5f9; }
+.site-footer__main { display: grid; grid-template-columns: 1.3fr 0.8fr 1.1fr; gap: 65px; padding-bottom: 45px; }
+.site-footer__brand img { display: block; width: 145px; mix-blend-mode: multiply; }
+.site-footer__brand > p { margin-top: 20px; color: #666071; font-size: 17px; letter-spacing: -0.5px; line-height: 1.5; }
+.site-footer__brand > span { display: block; margin-top: 24px; color: #a198ad; font: 7px / 1.6 Consolas, monospace; letter-spacing: 1px; }
+.site-footer .eyebrow { margin-bottom: 19px; color: #978bA5; font-size: 8px; letter-spacing: 1px; }
+.site-footer__nav, .site-footer__contact { display: flex; align-items: flex-start; flex-direction: column; }
+.site-footer__nav > a { display: flex; min-height: 35px; align-items: center; justify-content: space-between; gap: 25px; color: #766c82; font-size: 11px; }
+.site-footer__nav svg { width: 12px; height: 12px; color: #b6aabe; }
+.site-footer__contact > a { display: flex; min-height: 35px; align-items: flex-start; gap: 10px; color: #766c82; font-size: 11px; line-height: 1.9; }
+.site-footer__contact > a > svg { width: 13px; height: 13px; flex-shrink: 0; margin-top: 4px; color: #a596b2; }
+.site-footer__contact > a:last-of-type { max-width: 235px; }
+.site-footer__hours { margin-top: 15px; color: #a198ad; font-size: 9px; line-height: 1.8; }
+.site-footer a:hover { color: #43324f; }
+.site-footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 20px; border-top: 1px solid #e7e0ed; color: #786c84; font-size: 10px; line-height: 1.8; }
+.site-footer__bottom button { display: flex; min-height: 36px; align-items: center; gap: 12px; padding: 0; border: 0; background: transparent; color: #8b7c99; font-size: 9px; }
+.site-footer__bottom button svg { width: 13px; height: 13px; }
+.mobile-dock { display: none; }
+@media (max-width: 1320px) { .site-footer { margin-inline: 20px; } }
+@media (max-width: 900px) { .site-footer { padding: 40px 32px 22px; } .site-footer__main { gap: 35px; } }
+@media (max-width: 650px) {
+  .site-footer { margin-inline: 10px; padding: 35px 24px 22px; border-radius: 22px; }
+  .site-footer__main { grid-template-columns: 1fr; gap: 30px; padding-bottom: 30px; }
+  .site-footer__brand > p { font-size: 18px; }
+  .site-footer__brand > span { margin-top: 18px; }
+  .site-footer__nav { align-items: stretch; }
+  .site-footer__nav > a { min-height: 42px; border-bottom: 1px solid #ebe5f1; }
+  .site-footer__contact > a { min-height: 38px; font-size: 12px; }
+  .site-footer__bottom { align-items: flex-start; flex-wrap: wrap; gap: 12px; font-size: 8px; }
+  .site-footer__bottom > span:nth-child(2) { display: none; }
+  .site-footer__bottom button { min-height: 28px; margin-left: auto; }
+  .mobile-dock { position: fixed; z-index: 800; right: 16px; bottom: max(12px, env(safe-area-inset-bottom)); left: 16px; display: flex; align-items: center; justify-content: space-around; max-width: 370px; margin-inline: auto; padding: 8px; border: 1px solid #e5e0ed; border-radius: 18px; background: rgb(255 255 255 / 94%); box-shadow: 0 4px 25px rgb(70 50 90 / 12%); backdrop-filter: blur(16px); transition: opacity 200ms ease, transform 250ms var(--ease); }
+  .mobile-dock > a, .mobile-dock > button { display: flex; min-width: 65px; min-height: 40px; align-items: center; flex-direction: column; justify-content: center; gap: 5px; padding: 3px 10px; border: 0; border-radius: 9px; background: transparent; color: #82758d; font-size: 8px; line-height: 1.4; }
+  .mobile-dock svg { width: 16px; height: 16px; stroke-width: 1.5; }
+  .mobile-dock > a:hover, .mobile-dock > button:hover { background: #f2eff6; }
+  .app-container:has(.tek-nav--open) .mobile-dock { opacity: 0; pointer-events: none; transform: translateY(15px); }
 }

@@ -1,62 +1,19 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
+import { FiArrowUp, FiArrowUpRight, FiMail, FiMapPin, FiMessageCircle, FiPhone } from 'react-icons/fi';
+import { contact } from '../data/siteContent';
+import logo from '../assets/TEKZAI-LOGO-WW-1.2.png';
 import './Footer.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function Footer() {
+  const backToTop = () => window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        {/* About Section */}
-        <div className="footer-about">
-          <h4>About TEKZAI</h4>
-          <p>
-            TEKZAI is dedicated to empowering businesses through cutting-edge technology solutions,
-            enabling them to focus on core activities and achieve sustainable growth.
-          </p>
-        </div>
-
-        {/* Quick Links Section */}
-        <div className="footer-links">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="/about">About</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/products">Products</a></li>
-            <li><a href="/contact">Contact</a></li>
-          </ul>
-        </div>
-
-        {/* Contact Info Section with Icons */}
-        <div className="footer-contact">
-          <h4>Contact Info</h4>
-          <p><a href="https://www.google.com/maps/search/?api=1&query=554+PHC+Kasaragod+671121+Kerala" className="fas fa-map-marker-alt" style={{color:"white", textDecoration:"none"}}></a>  554, PHC, Kasaragod, 671121, Kerala</p>
-          <p><a href="tel:+91 9400480459" className="fas fa-phone-alt" style={{color:"white", textDecoration:"none"}}></a>  +91 9400480459</p>
-          <p><a href="mailto:tekzaiaws@gmail.com" className="fas fa-envelope" style={{color:"white", textDecoration:"none"}}></a>  tekzaiaws@gmail.com</p>
-        </div>
-      </div>
-
-      {/* Desktop Footer Bottom */}
-      <div className="footer-bottom">
-        <p>© 2023 TEKZAI. All Rights Reserved.</p>
-        <p>Powered by TekzAi</p>
-      </div>
-
-      {/* Mobile Sticky Footer */}
-      <div className="footer-mobile">
-        <div className="footer-mobile-item">
-          <a href="tel:+91 9400480459" className="fas fa-phone" style={{color:"white", textDecoration:"none"}}></a>
-          <span>Call</span>
-        </div>
-        <div className="footer-mobile-item">
-          <a href="https://whatsapp.com" className="fab fa-whatsapp" style={{color:"white", textDecoration:"none"}}></a>
-          <span>WhatsApp</span>
-        </div>
-        <div className="footer-mobile-item" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <a className="fas fa-arrow-up"></a>
-          <span>Top</span>
-        </div>
-      </div>
-    </footer>
+    <>
+      <footer className="site-footer">
+        <div className="site-footer__main"><div className="site-footer__brand"><Link to="/" aria-label="TekzAi home"><img src={logo} alt="TekzAi Solutions" width="588" height="167" loading="lazy" /></Link><p>Thoughtful technology.<br />Real-world possibilities.</p><span>YOUR NEXT CHAPTER, BUILT TOGETHER.</span></div><nav className="site-footer__nav" aria-label="Footer navigation"><p className="eyebrow">TAKE A LOOK AROUND</p><Link to="/about">About us <FiArrowUpRight aria-hidden="true" /></Link><Link to="/services">Our services <FiArrowUpRight aria-hidden="true" /></Link><Link to="/products">Our products <FiArrowUpRight aria-hidden="true" /></Link><Link to="/contact">Let’s talk <FiArrowUpRight aria-hidden="true" /></Link></nav><div className="site-footer__contact"><p className="eyebrow">GOOD THINGS START WITH HELLO</p><a href={`mailto:${contact.email}`}><FiMail aria-hidden="true" />{contact.email}</a><a href={contact.phoneHref}><FiPhone aria-hidden="true" />{contact.phone}</a><a href={contact.maps} target="_blank" rel="noopener noreferrer"><FiMapPin aria-hidden="true" />{contact.address}</a><span className="site-footer__hours">{contact.hours}</span></div></div>
+        <div className="site-footer__bottom"><span>© {new Date().getFullYear()} TekzAi. All rights reserved.</span><span>Thoughtfully made by TekzAi.</span><button type="button" onClick={backToTop}>Back to top <FiArrowUp aria-hidden="true" /></button></div>
+      </footer>
+      <nav className="mobile-dock" aria-label="Quick contact"><a href={contact.phoneHref}><FiPhone aria-hidden="true" /><span>Call us</span></a><a href={contact.whatsapp} target="_blank" rel="noopener noreferrer"><FiMessageCircle aria-hidden="true" /><span>WhatsApp</span></a><button type="button" onClick={backToTop}><FiArrowUp aria-hidden="true" /><span>Back to top</span></button></nav>
+    </>
   );
 }
 
