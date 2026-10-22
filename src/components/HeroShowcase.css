@@ -1,0 +1,20 @@
+.tek-showcase { --showcase-gap: 30px; margin-top: 56px; }
+.tek-showcase__viewport { display: grid; grid-template-columns: min(760px, calc(100% - 64px)); justify-content: center; align-items: stretch; padding: 12px 0 48px; overflow: hidden; touch-action: pan-y pinch-zoom; cursor: grab; }
+.tek-showcase__slide { --slide-x: 0px; --slide-y: 0px; --slide-angle: 0deg; --slide-scale: 1; position: relative; z-index: 2; grid-area: 1 / 1; min-width: 0; transform: translateX(calc(var(--slide-x) + var(--swipe-offset, 0px))) translateY(var(--slide-y)) rotate(var(--slide-angle)) scale(var(--slide-scale)); transform-origin: center; transition: transform 850ms var(--hero-ease), opacity 650ms ease; }
+.tek-showcase__slide[data-position='previous'] { --slide-x: calc(-100% - var(--showcase-gap)); --slide-y: 28px; --slide-angle: -3deg; --slide-scale: 0.96; z-index: 1; opacity: 0.85; }
+.tek-showcase__slide[data-position='next'] { --slide-x: calc(100% + var(--showcase-gap)); --slide-y: 28px; --slide-angle: 3deg; --slide-scale: 0.96; z-index: 1; opacity: 0.85; }
+.tek-showcase[data-direction='next'] .tek-showcase__slide[data-position='next'], .tek-showcase[data-direction='previous'] .tek-showcase__slide[data-position='previous'] { z-index: 0; }
+.tek-showcase__viewport[data-dragging] { cursor: grabbing; user-select: none; }
+.tek-showcase__viewport[data-dragging] .tek-showcase__slide { transition: none; }
+.tek-showcase .tek-hero__frame { display: flex; height: 100%; flex-direction: column; cursor: grab; }
+.tek-showcase__viewport[data-dragging] .tek-hero__frame { cursor: grabbing; }
+.tek-showcase .tek-hero__frame > div { flex: 1; }
+.tek-showcase .tek-hero__frame:focus-visible { outline-offset: 4px; }
+
+@media (max-width: 1050px) { .tek-showcase { --showcase-gap: 22px; } }
+@media (max-width: 650px) {
+  .tek-showcase { --showcase-gap: 16px; margin-top: 28px; }
+  .tek-showcase__viewport { grid-template-columns: calc(100% - 32px); padding-bottom: 30px; }
+  .tek-showcase__slide[data-position='previous'], .tek-showcase__slide[data-position='next'] { --slide-y: 12px; --slide-angle: 0deg; --slide-scale: 0.98; }
+  .tek-showcase .tek-hero__frame:hover { transform: none; }
+}

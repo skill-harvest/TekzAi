@@ -103,15 +103,9 @@
 .tek-hero__suite-dot { color: #9b98b3; }
 .tek-hero__suite a:hover { color: #45465f; transform: translateY(-2px); }
 
-.tek-hero__showcase { position: relative; display: grid; grid-template-columns: minmax(230px, 1fr) minmax(0, 760px) minmax(230px, 1fr); align-items: start; gap: 30px; width: calc(100% + 280px); margin: 66px -140px 0; padding: 0 0 12px; }
 .tek-hero__frame { display: block; min-width: 0; padding: 10px; border: 1px solid #d5d5e1; border-radius: 26px; background: #e1e1eb; box-shadow: 0 8px 20px rgb(49 47 83 / 4%); text-align: left; transition: transform 450ms var(--hero-ease), box-shadow 300ms ease; }
 .tek-hero__frame > div { position: relative; min-height: 330px; overflow: hidden; border: 9px solid #fff; border-radius: 19px; }
 .tek-hero__frame:hover { transform: translateY(-6px); box-shadow: 0 14px 30px rgb(49 47 83 / 10%); }
-.tek-hero__frame--left, .tek-hero__frame--right { margin-top: 34px; }
-.tek-hero__frame--left { transform: rotate(-3deg); }
-.tek-hero__frame--right { transform: rotate(3deg); }
-.tek-hero__frame--left:hover { transform: translateY(-6px) rotate(-3deg); }
-.tek-hero__frame--right:hover { transform: translateY(-6px) rotate(3deg); }
 
 .tek-hero__technology-preview { position: relative; padding: 24px 28px; background: #101414; color: #fff; }
 .tek-hero__technology-preview::before { position: absolute; inset: 0; background: radial-gradient(ellipse at 85% 70%, rgb(110 158 129 / 17%), transparent 60%), linear-gradient(125deg, transparent 55%, rgb(255 255 255 / 2%) 55%, transparent 56%); content: ''; pointer-events: none; }
@@ -164,7 +158,6 @@
 .tek-hero__actions { animation-delay: 320ms; }
 .tek-hero__note { animation-delay: 380ms; }
 .tek-hero__suite { animation-delay: 440ms; }
-.tek-hero__showcase { animation-delay: 520ms; }
 
 @keyframes tek-hero-rise {
   from { opacity: 0; transform: translateY(18px); }
@@ -177,7 +170,6 @@
 
 @media (max-width: 1050px) {
   .tek-hero { margin-inline: 20px; }
-  .tek-hero__showcase { grid-template-columns: 230px minmax(0, 1fr) 230px; width: calc(100% + 330px); margin-inline: -165px; gap: 22px; }
   .tek-hero__sculpture { right: -60px; }
 }
 
@@ -200,10 +192,8 @@
   .tek-hero__suite a { min-height: 36px; gap: 5px; padding-inline: 5px; }
   .tek-hero__suite a > svg { width: 17px; height: 17px; }
   .tek-hero__suite a > span { font-size: 17px; letter-spacing: -0.9px; }
-  .tek-hero__showcase { display: block; width: auto; margin: 38px 16px 0; padding: 0; }
   .tek-hero__frame { padding: 7px; border-radius: 20px; }
   .tek-hero__frame > div { min-height: 305px; border-width: 6px; border-radius: 13px; }
-  .tek-hero__frame--left, .tek-hero__frame--right { display: none; }
   .tek-hero__technology-preview { padding: 20px; }
   .tek-hero__preview-brand { font-size: 9px; letter-spacing: 2px; }
   .tek-hero__preview-brand > svg { width: 17px; height: 17px; }
