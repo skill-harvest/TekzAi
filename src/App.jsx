@@ -9,7 +9,6 @@ import Products from './pages/Products/Products';
 import ProductDetail from './pages/Products/ProductDetail';
 import NotFound from './pages/NotFound';
 import Contact from './pages/Contact/Contact';
-import Popup from './components/PopUp';
 
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
         <Navbar />
         <SiteEffects />
         <main className="content" id="main-content" tabIndex={-1}>
-          <Popup />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
